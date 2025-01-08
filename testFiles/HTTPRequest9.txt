@@ -1,0 +1,6 @@
+GET http://www.example.com/some/path/7 HTTP/1.1
+...
+Host: 10.4.2.18:9099
+...
+
+this is the real message

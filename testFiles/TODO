@@ -1,0 +1,91 @@
+HTTPRequest1.txt: 
+  - example.com server
+  - can connect
+
+HTTPRequest2.txt:
+  - cs112 server
+  - use with client.c
+  - random GET request
+
+HTTPRequest3.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 1
+
+HTTPRequest4.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 2
+
+HTTPRequest5.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 3
+
+HTTPRequest6.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 4
+
+HTTPRequest7.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 5
+
+HTTPRequest8.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 6
+
+HTTPRequest9.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 7
+
+HTTPRequest10.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 8
+
+HTTPRequest11.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 9
+
+HTTPRequest12.txt:
+  - for server.c program with port 9099 and IP 10.4.2.18
+  - use with client.c and server.c
+  - random GET request 10
+
+
+serverResponse1.txt:
+  - server response file
+  - contains 500 bytes of data
+  - has max age of 100
+
+serverResponse2.txt:
+  - server response file
+  - contains 11 bytes of data
+  - has wrong max age line, so should default to 3600
+
+serverResponse3.txt:
+  - server response file
+  - contains 30 bytes of data
+  - has no max age line, so should default to 3600
+
+serverResponse4.txt:
+  - server response file
+  - contains 0 bytes of data
+  - has max age of 100
+
+serverResponse5.txt:
+  - server response file
+  - contains 26 bytes of data
+  - has max age of 10
+
+
+curl -x 10.4.2.18:9098 http://www.cs.tufts.edu/comp/112/index.html
+curl -x 10.4.2.18:9098 http://www.cs.cmu.edu/~prs/bio.html
+curl -x 10.4.2.18:9098 http://www.cs.cmu.edu/~dga/dga-headshot.jpg
+curl -i http://www.cs.cmu.edu/~dga/dga-headshot.jpg
+

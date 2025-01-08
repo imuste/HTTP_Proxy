@@ -1,0 +1,7 @@
+GET http://www.cs.tufts.edu/comp/112/index.html HTTP/1.1
+Host: www.cs.tufts.edu:80
+Connection: keep-alive
+User-Agent: YourUserAgent
+Accept: */*
+
+this is the real message

@@ -1,0 +1,69 @@
+/*****************************************************************************
+* HTTP Proxy
+* Author: Isabel Muste
+* Project Language: C
+*****************************************************************************/
+
+The purpose of this project is to provide the user of it with a way to improve
+the speed of accessing http webistes. This proxy will detect and inspect any
+traffic sent with the HTTP protocol and it will cache this traffic according
+to the time specified by the server response. Then when the user visits the
+same website twice, the second time this response will likely be served from
+the cache enhancing the speed of accessing that website again.
+
+The cache replacement policy maintained by this proxy is to remove the least
+recently accessed stale item from the cache if the cache is at its limit
+and a new request is made that should be cached. This ensures that the cache
+is used optimally giving the user optimal speed when accessing websites.
+
+This project taught me to write code on top of the transport layer and how
+to read HTTP traffic efficiently. It taught me to think about different cache
+replacement policies and how to best improve the user experience with 
+different policy options. 
+
+
+/*****************************************************************************
+ RUNNING THE PROGRAM
+*****************************************************************************/
+- Compile using 
+    gcc proxyDriver.c proxy.c cache.c -o proxy
+- Run with
+    ./proxy [userPort]
+
+
+#####Running With Curl
+Once the program is running, the user can use curl to access HTTP websites
+and specify this proxy in the curl arguments. By accessing the same website
+multiple times, the user will be able to see the efficiency provided by the
+cache. 
+
+Example with curl:
+- curl http://www.cs.cmu.edu/~dga/dga-headshot.jpg > headshotOut.jpg
+- curl -x [userIP:port] http://www.cs.cmu.edu/~dga/dga-headshot.jpg > headshotOutProxy.jpg
+- curl -x [userIP:port] http://www.cs.cmu.edu/~dga/dga-headshot.jpg > headshotOutProxy2.jpg
+- diff headshotOut.jpg headshotOutProxy.jpg
+- diff headshotOutProxy.jpg headshotOutProxy2.jpg
+- diff headshotOutProxy2.jpg headshotOut.jpg
+
+
+#####Running With Client and Server
+Besides using curl, a simple client and server program are included in this
+directory that can be run with the proxy. 
+When running the client, the user can specify a HTTP request file to be sent
+by the client to the server (through the proxy).
+When running the server, the user can specify a response file to be sent back
+to the client (through the proxy). 
+Once this is done, the client can quit the server program and resend the 
+request from the client which will then be served from the proxy cache.
+
+Example with client and server programs:
+- gcc client.c -o client
+- gcc server.c -o server
+- ./server serverResponse1.txt
+- ./client HTTPRequest3.txt > clientReceived1.txt
+- diff serverResponse1.txt clientReceived1.txt
+
+
+There are two shell scripts in the testFiles directory that can be run to
+execute many tests at the same time both with the client and server programs
+as well as with curl.

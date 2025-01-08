@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+...
+...
+Fun headers
+ETC
+But no max age line
+Content-Length: 30
+
+hello world this is a response
